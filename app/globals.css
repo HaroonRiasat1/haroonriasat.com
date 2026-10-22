@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+/* ---------- Design system ----------
+   Colours are tokens so light and dark share every component. Dark is the default;
+   the theme script in layout.tsx sets data-theme before first paint. */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #090b10;
+  --bg-2: #0d1017;
+  --surface: rgb(255 255 255 / 0.028);
+  --surface-2: rgb(255 255 255 / 0.05);
+  --line: rgb(255 255 255 / 0.08);
+  --line-2: rgb(255 255 255 / 0.14);
+  --fg: #eceef4;
+  --muted: #9ba2b4;
+  --subtle: #6c7487;
+  --accent: #6366f1;
+  --accent-2: #22d3ee;
+  --accent-text: #a5b4fc;
+  --cyan-text: #67e8f9;
+  --on-accent: #ffffff;
+  --strong: #34d399;
+  --partial: #fbbf24;
+  --gap: #fb7185;
+  --glow: rgb(99 102 241 / 0.18);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 20px 50px -24px rgb(0 0 0 / 0.7);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --bg-2: #eef0f6;
+  --surface: #ffffff;
+  --surface-2: #f1f3f9;
+  --line: rgb(9 11 16 / 0.08);
+  --line-2: rgb(9 11 16 / 0.15);
+  --fg: #0b0d12;
+  --muted: #4a5163;
+  --subtle: #646b7d;
+  --accent: #4f46e5;
+  --accent-2: #0891b2;
+  --accent-text: #4338ca;
+  --cyan-text: #0e7490;
+  --on-accent: #ffffff;
+  --strong: #047857;
+  --partial: #b45309;
+  --gap: #be123c;
+  --glow: rgb(79 70 229 / 0.12);
+  --shadow: 0 1px 2px rgb(9 11 16 / 0.04), 0 16px 40px -24px rgb(9 11 16 / 0.18);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-text: var(--accent-text);
+  --color-cyan-text: var(--cyan-text);
+  --color-on-accent: var(--on-accent);
+  --color-strong: var(--strong);
+  --color-partial: var(--partial);
+  --color-gap: var(--gap);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --shadow-card: var(--shadow);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--accent) 40%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Eyebrow above section titles. */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.25rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  }
+
+  .h-section {
+    font-size: clamp(2rem, 4.6vw, 3.5rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .accent-serif {
+    font-family: var(--font-instrument), ui-serif, Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .text-gradient {
+    background: linear-gradient(100deg, var(--accent-text) 10%, var(--cyan-text) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+
+  /* Cursor-follow glow: --mx/--my are set by pointer handlers on desktop only. */
+  .glow-card {
+    --mx: 50%;
+    --my: 50%;
+  }
+  .glow-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(420px circle at var(--mx) var(--my), color-mix(in oklab, var(--accent) 70%, transparent), transparent 45%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  .glow-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(600px circle at var(--mx) var(--my), var(--glow), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  @media (hover: hover) {
+    .glow-card:hover::before,
+    .glow-card:hover::after {
+      opacity: 1;
+    }
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    white-space: nowrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.75rem;
+    padding-inline: 1.15rem;
+    border-radius: 999px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--on-accent);
+    box-shadow: 0 8px 30px -10px color-mix(in oklab, var(--accent) 80%, transparent), inset 0 1px 0 rgb(255 255 255 / 0.18);
+  }
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--accent) 88%, white);
+  }
+  .btn-primary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  .btn-ghost {
+    border: 1px solid var(--line-2);
+    color: var(--fg);
+    background: var(--surface);
+  }
+  .btn-ghost:hover {
+    border-color: color-mix(in oklab, var(--accent) 55%, var(--line-2));
+    background: var(--surface-2);
+  }
+
+  .field {
+    width: 100%;
+    background: var(--bg-2);
+    border: 1px solid var(--line-2);
+    border-radius: 0.9rem;
+    color: var(--fg);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .field::placeholder {
+    color: var(--subtle);
+  }
+  .field:focus {
+    outline: none;
+    border-color: color-mix(in oklab, var(--accent) 70%, var(--line-2));
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
+  }
+
+  .link-u {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+  .link-u:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Subtle grid and noise used behind the hero. */
+  .bg-grid {
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+  }
+
+  /* AI answers rendered from escaped markdown. */
+  .prose-chat p + p,
+  .prose-chat p + ul,
+  .prose-chat ul + p {
+    margin-top: 0.6rem;
+  }
+  .prose-chat ul {
+    list-style: disc;
+    padding-left: 1.15rem;
+  }
+  .prose-chat li + li {
+    margin-top: 0.25rem;
+  }
+  .prose-chat b {
+    color: var(--fg);
+    font-weight: 600;
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--strong) 60%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+.live-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--strong);
+  animation: pulse-dot 1.8s ease-out infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.caret {
+  display: inline-block;
+  width: 0.5ch;
+  height: 1em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: blink 1s steps(1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-dot,
+  .caret {
+    animation: none;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.orbit {
+  animation: spin 60s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit {
+    animation: none;
+  }
+}
+
+@keyframes wave {
+  50% {
+    transform: scaleY(0.45);
+  }
+}
+.wave {
+  transform-origin: center;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .group:hover .wave {
+    animation: wave 0.9s ease-in-out infinite;
+  }
+}
+
+/* Hero entrance runs in CSS so the first screen never waits for JavaScript. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+.rise {
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+}
