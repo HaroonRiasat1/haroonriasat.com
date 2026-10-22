@@ -372,21 +372,37 @@ export const expertise = [
   },
 ];
 
-// A course in progress: tools being learned, kept apart from shipped experience.
-export const learning = {
-  course: "AI FDE: The Forward Deployed Engineer & Agentic AI Architect",
-  by: "Ed Donner, Udemy",
-  url: "https://www.udemy.com/course/ai-fde-forward-deployed-engineer-agentic-ai-architect/",
-  summary:
-    "A three-week build of a production agent system: agent harnesses, evals, durable workflows with human sign-off, agent swarms, and deployment on AWS Bedrock AgentCore.",
-  groups: [
-    { name: "Agent frameworks", tools: ["LangGraph", "LangChain Deep Agents", "Claude Agent SDK"] },
-    { name: "Evals & observability", tools: ["Langfuse", "LLM as a judge"] },
-    { name: "Memory & data", tools: ["Agentic RAG over MCP", "Qdrant", "Supabase"] },
-    { name: "Production on AWS", tools: ["Bedrock AgentCore", "AgentCore Gateway & Memory", "Cedar policies", "Lambda"] },
-    { name: "Models & inference", tools: ["Ollama", "OpenRouter", "Open-weight models"] },
-  ],
-};
+// Courses in progress: tools being learned, kept apart from shipped experience.
+export const learning = [
+  {
+    course: "AI FDE: The Forward Deployed Engineer & Agentic AI Architect",
+    by: "Ed Donner, Udemy",
+    url: "https://www.udemy.com/course/ai-fde-forward-deployed-engineer-agentic-ai-architect/",
+    summary:
+      "A three-week build of a production agent system: agent harnesses, evals, durable workflows with human sign-off, agent swarms, and deployment on AWS Bedrock AgentCore.",
+    groups: [
+      { name: "Agent frameworks", tools: ["LangGraph", "LangChain Deep Agents", "Claude Agent SDK"] },
+      { name: "Evals & observability", tools: ["Langfuse", "LLM as a judge"] },
+      { name: "Memory & data", tools: ["Agentic RAG over MCP", "Qdrant", "Supabase"] },
+      { name: "Production on AWS", tools: ["Bedrock AgentCore", "AgentCore Gateway & Memory", "Cedar policies", "Lambda"] },
+      { name: "Models & inference", tools: ["Ollama", "OpenRouter", "Open-weight models"] },
+    ],
+  },
+  {
+    course: "AI Engineer Production Track: Deploy LLMs & Agents at Scale",
+    by: "Ligency and Ed Donner, Udemy",
+    url: "https://www.udemy.com/course/generative-and-agentic-ai-in-production/",
+    summary:
+      "Shipping LLM apps and multi-agent systems to production on Vercel, AWS, Azure and GCP, with infrastructure as code, CI/CD, monitoring and guardrails.",
+    groups: [
+      { name: "App stack", tools: ["FastAPI", "Clerk"] },
+      { name: "AWS", tools: ["Lambda", "CloudFront", "API Gateway", "SQS", "App Runner", "Aurora"] },
+      { name: "Agents on AWS", tools: ["AgentCore", "Strands Agents"] },
+      { name: "Infra & delivery", tools: ["Terraform", "GitHub Actions"] },
+      { name: "Multi-cloud", tools: ["Azure Container Apps", "GCP Cloud Run"] },
+    ],
+  },
+];
 
 export const education = [
   {

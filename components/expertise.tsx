@@ -54,31 +54,37 @@ export function Expertise() {
 
         <Reveal className="mt-5">
           <div className="rounded-[1.25rem] border border-dashed border-line-2 p-6 sm:p-7">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span className="chip border-partial/30 text-partial">
-                <span aria-hidden className="size-1.5 rounded-full bg-partial" /> Currently learning
-              </span>
-              <a href={learning.url} className="group inline-flex items-center gap-1 font-medium hover:text-accent-text">
-                {learning.course}
-                <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-              <span className="text-sm text-subtle">{learning.by}</span>
-            </div>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">{learning.summary}</p>
-            <dl className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-              {learning.groups.map((g) => (
-                <div key={g.name}>
-                  <dt className="font-mono text-xs uppercase tracking-wider text-subtle">{g.name}</dt>
-                  <dd className="mt-2 flex flex-wrap gap-1.5">
-                    {g.tools.map((t) => (
-                      <span key={t} className="chip">
-                        {t}
-                      </span>
+            <span className="chip border-partial/30 text-partial">
+              <span aria-hidden className="size-1.5 rounded-full bg-partial" /> Currently learning
+            </span>
+            <div className="mt-2 divide-y divide-line">
+              {learning.map((c) => (
+                <div key={c.url} className="py-5 last:pb-0">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <a href={c.url} className="group inline-flex items-center gap-1 font-medium hover:text-accent-text">
+                      {c.course}
+                      <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                    <span className="text-sm text-subtle">{c.by}</span>
+                  </div>
+                  <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">{c.summary}</p>
+                  <dl className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                    {c.groups.map((g) => (
+                      <div key={g.name}>
+                        <dt className="font-mono text-xs uppercase tracking-wider text-subtle">{g.name}</dt>
+                        <dd className="mt-2 flex flex-wrap gap-1.5">
+                          {g.tools.map((t) => (
+                            <span key={t} className="chip">
+                              {t}
+                            </span>
+                          ))}
+                        </dd>
+                      </div>
                     ))}
-                  </dd>
+                  </dl>
                 </div>
               ))}
-            </dl>
+            </div>
           </div>
         </Reveal>
       </div>
