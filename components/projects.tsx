@@ -11,8 +11,8 @@ import { ease } from "./reveal";
 import { SectionHeading } from "./section-heading";
 
 // Asymmetric bento: wide and narrow cards alternate on large screens.
-const order = ["council-tap", "kinwell", "subqc-ai", "ai-resume-assistant", "wild-frequencies", "fridge", "scrub"];
-const span = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4"];
+const order = ["council-tap", "kinwell", "subqc-ai", "ai-resume-assistant", "wild-frequencies", "fridge", "sunridge", "scrub"];
+const span = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7", "lg:col-span-6", "lg:col-span-6", "lg:col-span-6", "lg:col-span-6"];
 
 function Preview({ p }: { p: Project }) {
   if (p.image) {
@@ -103,7 +103,7 @@ function Card({ p, index }: { p: Project; index: number }) {
           ))}
           {p.confidential && (
             <span className="inline-flex items-center gap-1.5 text-subtle">
-              <Lock className="size-3.5" /> Client work under NDA
+              <Lock className="size-3.5" /> {p.kind === "Client work" ? "Client work under NDA" : "Private repository"}
             </span>
           )}
         </div>

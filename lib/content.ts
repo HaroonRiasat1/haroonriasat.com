@@ -103,7 +103,7 @@ export interface Project {
   outcome?: string;
   image?: string;
   imageAlt?: string;
-  visual?: "transcript" | "inspection" | "salesforce";
+  visual?: "transcript" | "inspection" | "salesforce" | "clinic";
   demo?: string;
   repo?: string;
   // For projects with more than one repository (shown instead of repo).
@@ -315,6 +315,17 @@ export const projects: Project[] = [
       { label: "App", href: "https://github.com/HaroonRiasat1/fridge_flutter" },
       { label: "Backend", href: "https://github.com/HaroonRiasat1/fridge_backend" },
     ],
+  },
+  {
+    slug: "sunridge",
+    name: "SunRidge",
+    category: "Healthcare iOS app",
+    kind: "Team project",
+    problem: "A SwiftUI app for running a clinic's day: today's patients, procedures, vitals, labs, dispensed items and treatment scheduling.",
+    role: "One of four engineers. Built the Today view, patient list, labs and dispensed modules, vendor labs and treatment scheduling.",
+    tech: ["Swift", "SwiftUI", "REST APIs"],
+    visual: "clinic",
+    confidential: true,
   },
 ];
 
