@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haroon Riasat — Full-Stack Software Engineer</title>
+  <meta name="description" content="Haroon Riasat: full-stack software engineer in Turku, Finland, building web, mobile and AI products on AWS. Experience, projects, skills and education." />
+  <meta property="og:title" content="Haroon Riasat — Full-Stack Software Engineer" />
+  <meta property="og:description" content="Full-stack engineer in Turku building web, mobile and AI products. Resume, projects and an AI assistant you can ask." />
+  <meta property="og:url" content="https://haroonriasat.com" />
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0c0d" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='%231e3a8a'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='28' fill='white'>HR</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --muted: #57534e;
+      --faint: #a8a29e;
+      --line: #e7e5e4;
+      --accent: #1e40af;
+      --accent-soft: #eff6ff;
+      --chip: #f5f5f4;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --serif: "Newsreader", Georgia, serif;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c0c0d;
+        --surface: #151517;
+        --text: #f5f5f4;
+        --muted: #a8a29e;
+        --faint: #6b6762;
+        --line: #26262a;
+        --accent: #93c5fd;
+        --accent-soft: #172036;
+        --chip: #1c1c20;
+        color-scheme: dark;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- header ---------- */
+    header.hero { padding: 72px 0 40px; border-bottom: 1px solid var(--line); }
+    .hello { margin: 0 0 8px; font-size: 14px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    h1 { margin: 0; font: 600 clamp(44px, 8vw, 72px)/1 var(--serif); letter-spacing: -0.02em; }
+    .tagline { margin: 14px 0 0; font-size: clamp(18px, 2.4vw, 21px); color: var(--muted); max-width: 640px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 10px;
+      border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 15px; font-weight: 500;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .btn:hover { text-decoration: none; border-color: var(--faint); transform: translateY(-1px); }
+    .btn.primary { background: var(--text); color: var(--bg); border-color: transparent; }
+    .btn svg { width: 17px; height: 17px; flex: none; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
+    .stat { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    .stat b { display: block; font: 600 30px/1.1 var(--serif); }
+    .stat span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+
+    /* ---------- sections ---------- */
+    section { padding: 48px 0 8px; }
+    h2 { margin: 0 0 22px; font: 600 28px/1.2 var(--serif); }
+    h2 small { margin-left: 10px; font: 500 13px var(--sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
+    p { margin: 0 0 14px; }
+    .lead { font-size: 18px; color: var(--muted); }
+
+    .job { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-top: 1px solid var(--line); }
+    .job:first-of-type { border-top: 0; padding-top: 0; }
+    .when { font-size: 14px; color: var(--muted); padding-top: 3px; }
+    .job h3 { margin: 0; font-size: 18px; font-weight: 600; }
+    .job .org { margin: 2px 0 10px; color: var(--muted); }
+    .job ul { margin: 0; padding-left: 18px; }
+    .job li { margin: 6px 0; }
+    .job li::marker { color: var(--faint); }
+    .earlier { margin-top: 6px; padding: 16px 18px; border-radius: 12px; background: var(--chip); font-size: 15px; color: var(--muted); }
+
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .card { display: flex; flex-direction: column; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+    .card .kind { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
+    .card h3 { margin: 4px 0 8px; font-size: 19px; }
+    .card p { margin: 0 0 14px; font-size: 15px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .tags span { padding: 3px 9px; border-radius: 999px; background: var(--chip); font-size: 12.5px; color: var(--muted); }
+    .card .links { display: flex; gap: 14px; margin-top: 14px; font-size: 14px; font-weight: 500; }
+
+    .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 32px; }
+    .skills div { padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+    .skills h4 { margin: 0 0 6px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
+    .skills p { margin: 0; font-size: 15px; }
+
+    .edu { display: grid; gap: 16px; }
+    .edu article { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+    .edu .top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .edu h3 { margin: 0; font-size: 18px; }
+    .edu .org { color: var(--muted); }
+    .edu p { margin: 8px 0 0; font-size: 15px; color: var(--muted); }
+
+    .list { margin: 0; padding-left: 18px; }
+    .list li { margin: 8px 0; }
+    .list li::marker { color: var(--faint); }
+
+    .ask {
+      margin: 56px 0 0; padding: 28px; border-radius: 20px; background: var(--accent-soft);
+      display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .ask h2 { margin: 0 0 4px; font-size: 24px; }
+    .ask p { margin: 0; color: var(--muted); }
+
+    footer { padding: 40px 0 56px; color: var(--faint); font-size: 14px; }
+
+    @media (max-width: 720px) {
+      header.hero { padding-top: 48px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .job { grid-template-columns: 1fr; gap: 4px; }
+      .projects, .skills { grid-template-columns: 1fr; }
+    }
+
+    /* Print: a clean paper version straight from the browser. */
+    @media print {
+      :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #333; --faint: #666; --line: #ddd; --chip: #f4f4f4; --accent: #1e3a8a; }
+      @page { margin: 12mm; }
+      body { font-size: 9.5pt; line-height: 1.45; }
+      .actions, .ask, footer, .stats { display: none; }
+      header.hero { padding: 0 0 8px; }
+      h1 { font-size: 26pt; }
+      h2 { font-size: 14pt; margin-bottom: 8px; }
+      section { padding: 10px 0 0; }
+      .job { padding: 8px 0; grid-template-columns: 120px minmax(0, 1fr); }
+      .projects { gap: 8px; }
+      .card, .edu article { padding: 10px 12px; border-radius: 8px; }
+      .card, .edu article, .job { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <p class="hello">Turku, Finland</p>
+      <h1>Haroon Riasat</h1>
+      <p class="tagline">Full-stack software engineer building web, mobile and AI products on AWS, from first idea to production.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://ask.haroonriasat.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12Z"/></svg>
+          Ask my AI resume
+        </a>
+        <a class="btn" href="Haroon_Riasat_Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+          Download PDF
+        </a>
+        <a class="btn" href="mailto:haroonriasatali@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email
+        </a>
+        <a class="btn" href="https://linkedin.com/in/haroon-riasat-82659b1a7" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3zm6.5 0h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.6 4.77 6v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn" href="https://github.com/HaroonRiasat1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>4.5+</b><span>years shipping production software</span></div>
+        <div class="stat"><b>60+</b><span>products delivered as a consultancy co-founder</span></div>
+        <div class="stat"><b>6</b><span>engineers led on 20+ production apps</span></div>
+        <div class="stat"><b>4.7/5</b><span>M.Sc. GPA, Åbo Akademi University</span></div>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="lead">Full-stack engineer with 4.5 years of experience taking web, mobile and AI products from idea to production. I build
+        React and Next.js frontends and the services behind them in Python, Node.js and PHP/Laravel on AWS, and have shipped RAG
+        assistants, audio transcription pipelines and document extraction systems used by real customers.</p>
+      <p>As co-founder of a consultancy that has delivered 60+ products, I own technical decisions end to end, from architecture to
+        deployment and operations. I care most about making LLM systems reliable, measurable and cost-efficient under real traffic, and
+        I want to keep growing in a team of strong engineers who care about craft.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="when">Sep 2024 – Present</div>
+        <div>
+          <h3>Software Engineer</h3>
+          <div class="org"><a href="https://amplon.io" target="_blank" rel="noopener">Amplon.io</a> · Turku, Finland</div>
+          <ul>
+            <li>Designed and shipped a RAG assistant (Python/Flask, OpenAI API, AWS) for Amplon's Hoshin Kanri strategic planning platform
+              that answers users' questions from product manuals and YouTube tutorial transcripts, from retrieval pipeline to React integration.</li>
+            <li>Build backend features and APIs in PHP/Laravel with the matching React frontend, and integrated the Contentful headless CMS
+              so release notes and in-app content update without code deploys.</li>
+            <li>Work daily with product, design and backend colleagues to improve performance and reliability, turning user feedback into
+              scoped, shippable releases.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Nov 2023 – Present</div>
+        <div>
+          <h3>Co-Founder &amp; Software Engineer</h3>
+          <div class="org">Exitech · Remote</div>
+          <ul>
+            <li>Co-founded a product engineering consultancy that has delivered 60+ products for international clients in SaaS,
+              e-commerce, AI and automation.</li>
+            <li>Lead work from first client conversation to production: architecture, implementation, containerised AWS deployments with
+              Docker, Kubernetes and CI/CD, and ongoing operations, mostly with React/Next.js, Node.js/TypeScript, Python and PostgreSQL.</li>
+            <li>Own technical decisions with client stakeholders, trading off cost, speed and reliability.</li>
+            <li>Led the Exitech AI Internship Program: final-year interns built 12 complete AI web products in three months.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Feb 2023 – Jun 2024</div>
+        <div>
+          <h3>Software Engineer</h3>
+          <div class="org">QUEST Lab · Islamabad, Pakistan</div>
+          <ul>
+            <li>Promoted early to lead a team of 6 responsible for 20+ production AI-based web and iOS apps, running client communication
+              and project management while staying hands-on in the code.</li>
+            <li>Fine-tuned LLMs on client data and integrated them into products; built web scraping pipelines that fed the apps' AI features.</li>
+            <li>Built and deployed end-to-end web products and native iOS apps on AWS, owning the lifecycle from requirements to release.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="earlier">
+        <b>Earlier:</b> Software Engineer Intern at MRS Technologies, Islamabad (Jul – Sep 2022), building an MVP carpool app with the MERN
+        stack, AWS Amplify, EC2 and S3. Intern at QUEST Lab, Islamabad (Aug – Oct 2021), building an internal audit system with React,
+        PostgreSQL and Laravel.
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="card">
+          <span class="kind">Work project</span>
+          <h3>Council Tap</h3>
+          <p>AI court-hearing transcription. Led the architecture and delivery of a pipeline that transcribes long, noisy Maui County
+            court-hearing recordings with Deepgram and uses Claude to turn them into structured, lawyer-ready notes on AWS.</p>
+          <div class="tags"><span>Python</span><span>Deepgram</span><span>Claude</span><span>MERN</span><span>AWS</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Side project</span>
+          <h3>Kinwell</h3>
+          <p>Family health platform with LLM features. Lab reports uploaded as PDFs or photos become structured results with trends, and a
+            Node.js MCP server lets Claude use the platform with role-scoped tools and human approval.</p>
+          <div class="tags"><span>Node.js</span><span>LLMs</span><span>MCP</span><span>Document extraction</span></div>
+          <div class="links"><a href="https://kinwell-sepia.vercel.app" target="_blank" rel="noopener">Live demo ↗</a></div>
+        </article>
+        <article class="card">
+          <span class="kind">Work project</span>
+          <h3>Subqc AI</h3>
+          <p>AI-powered CRM forms and reporting. Led development of a platform that automates field inspections, checklists and report
+            generation, and owned the core implementation and AWS deployment.</p>
+          <div class="tags"><span>MERN</span><span>OpenAI</span><span>Embeddings</span><span>AWS</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Work project</span>
+          <h3>SCRUB</h3>
+          <p>Custom sales-management app extending Salesforce, with a React/TypeScript frontend, Express/PostgreSQL backend and OAuth sign-in.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Express</span><span>PostgreSQL</span><span>OAuth</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Personal project</span>
+          <h3>AI resume assistant</h3>
+          <p>A RAG chatbot grounded only in my profile: hybrid semantic and keyword retrieval over Upstash Vector, OpenAI with open-source
+            fallbacks, cited sources and guardrails that say "I don't know" instead of guessing.</p>
+          <div class="tags"><span>TypeScript</span><span>Upstash Vector</span><span>OpenAI</span><span>Vercel</span></div>
+          <div class="links"><a href="https://ask.haroonriasat.com">Try it ↗</a><a href="https://github.com/HaroonRiasat1/resume-chatbot" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </article>
+        <article class="card">
+          <span class="kind">Side project</span>
+          <h3>wild-frequencies</h3>
+          <p>A live animal rock concert in the browser: a 7-piece animal band, generated songs, upload your own track and the band learns it,
+            or host a party so friends join from their phones in sync.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Tone.js</span><span>WebRTC</span></div>
+          <div class="links"><a href="https://wild-frequencies.vercel.app" target="_blank" rel="noopener">Live demo ↗</a><a href="https://github.com/HaroonRiasat1/wild-frequencies" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </article>
+      </div>
+      <p style="margin-top:18px;font-size:15px;color:var(--muted)">More on <a href="https://github.com/HaroonRiasat1" target="_blank" rel="noopener">GitHub</a>:
+        event-map-scraper, tripstitch, airplane-runner and earlier games and tools.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div><h4>Core (daily use)</h4><p>React, Next.js, TypeScript, JavaScript, Node.js, Python (Flask), PHP (Laravel), PostgreSQL, AWS, REST APIs</p></div>
+        <div><h4>AI / LLM</h4><p>OpenAI, Claude and Gemini APIs, RAG, embeddings, vector search (pgvector, Pinecone), LLM fine-tuning, MCP servers, AWS Bedrock, Deepgram</p></div>
+        <div><h4>Cloud &amp; DevOps</h4><p>AWS (EC2, S3, Amplify, Bedrock, SageMaker), Docker, Kubernetes, CI/CD, Linux</p></div>
+        <div><h4>Also worked with</h4><p>React Native, SwiftUI, Express, MongoDB, LangChain, LlamaIndex, Contentful, Java</p></div>
+        <div><h4>Ways of working</h4><p>Agile/Scrum, Jira, project management, AI-assisted development (Claude, GitHub Copilot, ChatGPT)</p></div>
+        <div><h4>Languages</h4><p>English (professional), Finnish (elementary)</p></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education &amp; certifications</h2>
+      <div class="edu">
+        <article>
+          <div class="top"><h3>M.Sc. Information Technology (Computer Engineering)</h3><span class="when">Jun 2026</span></div>
+          <div class="org">Åbo Akademi University, Turku</div>
+          <p>GPA 4.7/5.0, specialised in Scalable Software Systems. Thesis:
+            <a href="https://www.doria.fi/handle/10024/194918" target="_blank" rel="noopener">TaskLint: AI-driven Task Auditing for Project Management</a>,
+            an AI-powered Chrome extension that audits project-board tasks for clarity, ownership, deadlines and delivery risk.</p>
+        </article>
+        <article>
+          <div class="top"><h3>B.Sc. Computer Science</h3><span class="when">Jun 2023</span></div>
+          <div class="org">FAST-NUCES, Islamabad</div>
+          <p>GPA 3.49/4.00, Dean's List of Honor three times, Chair of the IEEE Computer Society chapter.</p>
+        </article>
+      </div>
+      <ul class="list" style="margin-top:18px">
+        <li>AWS Certified Cloud Practitioner (2023 – 2026)</li>
+        <li>Foundation Certificate in Project Management, Project Management Professionals Finland (PRY)</li>
+      </ul>
+    </section>
+
+    <section id="awards">
+      <h2>Awards &amp; leadership</h2>
+      <ul class="list">
+        <li><b>1st place, Microsoft, Nokia &amp; Elisa Hackathon</b>: a 5G/6G drone network for healthcare in remote areas.</li>
+        <li><b>ICT Showroom 2025</b> (Fridge app): Best UI award from the jury, and 1st in Best Technical Content and Best Presentation by public vote.</li>
+        <li><b>Runner-up, Softec Web Development Competition</b> (2022): a MERN clinic management system.</li>
+        <li><b>Chair, IEEE Computer Society, FAST Islamabad</b> (2022 – 2023): organised technical events and workshops; 80+ tech events during my bachelor's.</li>
+      </ul>
+    </section>
+
+    <section id="beyond">
+      <h2>Beyond work</h2>
+      <p>Animal lover with three cats so far. I love to travel, hike and read; my favourite place so far is Lofoten.</p>
+    </section>
+
+    <aside class="ask">
+      <div>
+        <h2>Have a question about my background?</h2>
+        <p>Ask my AI resume assistant. It answers only from my resume and says when it doesn't know.</p>
+      </div>
+      <a class="btn primary" href="https://ask.haroonriasat.com">Ask my AI resume →</a>
+    </aside>
+
+    <footer>© 2026 Haroon Riasat · Turku, Finland · <a href="mailto:haroonriasatali@gmail.com">haroonriasatali@gmail.com</a></footer>
+  </div>
+</body>
+</html>
