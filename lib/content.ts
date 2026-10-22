@@ -372,6 +372,22 @@ export const expertise = [
   },
 ];
 
+// A course in progress: tools being learned, kept apart from shipped experience.
+export const learning = {
+  course: "AI FDE: The Forward Deployed Engineer & Agentic AI Architect",
+  by: "Ed Donner, Udemy",
+  url: "https://www.udemy.com/course/ai-fde-forward-deployed-engineer-agentic-ai-architect/",
+  summary:
+    "A three-week build of a production agent system: agent harnesses, evals, durable workflows with human sign-off, agent swarms, and deployment on AWS Bedrock AgentCore.",
+  groups: [
+    { name: "Agent frameworks", tools: ["LangGraph", "LangChain Deep Agents", "Claude Agent SDK"] },
+    { name: "Evals & observability", tools: ["Langfuse", "LLM as a judge"] },
+    { name: "Memory & data", tools: ["Agentic RAG over MCP", "Qdrant", "Supabase"] },
+    { name: "Production on AWS", tools: ["Bedrock AgentCore", "AgentCore Gateway & Memory", "Cedar policies", "Lambda"] },
+    { name: "Models & inference", tools: ["Ollama", "OpenRouter", "Open-weight models"] },
+  ],
+};
+
 export const education = [
   {
     degree: "M.Sc. Information Technology",
