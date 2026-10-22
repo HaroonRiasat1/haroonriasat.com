@@ -98,31 +98,4 @@ export function SalesforceVisual() {
   );
 }
 
-export function ClinicVisual() {
-  const rows = [
-    { t: "09:00", w: "62%", tag: "Vitals" },
-    { t: "10:30", w: "48%", tag: "Labs" },
-    { t: "13:15", w: "70%", tag: "Procedure" },
-  ];
-  return (
-    <div className="flex size-full items-center justify-center p-6 sm:p-8">
-      <div className="w-full max-w-sm rounded-2xl border border-line-2 bg-bg-2 p-4 shadow-card">
-        <div className="flex items-center justify-between">
-          <Label>Today</Label>
-          <span className="mb-3 font-mono text-[0.6rem] text-subtle">Room 2</span>
-        </div>
-        <div className="space-y-2">
-          {rows.map((r) => (
-            <div key={r.t} className="flex items-center gap-3 rounded-lg border border-line px-3 py-2">
-              <span className="font-mono text-[0.65rem] text-subtle">{r.t}</span>
-              <Skeleton w={r.w} />
-              <span className="ml-auto whitespace-nowrap rounded-full bg-accent/15 px-2 py-px font-mono text-[0.55rem] text-accent-text">{r.tag}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export const visuals = { transcript: TranscriptVisual, inspection: InspectionVisual, salesforce: SalesforceVisual, clinic: ClinicVisual };
+export const visuals = { transcript: TranscriptVisual, inspection: InspectionVisual, salesforce: SalesforceVisual };

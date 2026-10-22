@@ -103,11 +103,13 @@ export interface Project {
   outcome?: string;
   image?: string;
   imageAlt?: string;
-  visual?: "transcript" | "inspection" | "salesforce" | "clinic";
+  visual?: "transcript" | "inspection" | "salesforce";
   demo?: string;
   repo?: string;
   // For projects with more than one repository (shown instead of repo).
   repos?: { label: string; href: string }[];
+  // A write-up hosted elsewhere, such as on the Exitech site.
+  external?: { label: string; href: string };
   confidential?: boolean;
   caseStudy?: CaseStudy;
 }
@@ -318,14 +320,15 @@ export const projects: Project[] = [
   },
   {
     slug: "sunridge",
-    name: "SunRidge",
-    category: "Healthcare iOS app",
-    kind: "Team project",
-    problem: "A SwiftUI app for running a clinic's day: today's patients, procedures, vitals, labs, dispensed items and treatment scheduling.",
-    role: "One of four engineers. Built the Today view, patient list, labs and dispensed modules, vendor labs and treatment scheduling.",
-    tech: ["Swift", "SwiftUI", "REST APIs"],
-    visual: "clinic",
-    confidential: true,
+    name: "Sunridge Medical",
+    category: "Healthcare iPad & iOS app",
+    kind: "Client work",
+    problem: "Clinical workflows ran on manual processes and disconnected tools. The app brings a clinic's day into one place: patients, procedures, vitals, labs, dispensed items and treatment scheduling.",
+    role: "One of four engineers at Exitech. Built the Today view, patient list, labs and dispensed modules, vendor labs and treatment scheduling.",
+    tech: ["Swift", "SwiftUI", "Combine", "REST APIs"],
+    image: "/projects/sunridge.png",
+    imageAlt: "Sunridge Medical iPad app: the dashboard with appointment calendar, and the Today view with a patient's procedures, labs and dispensed items",
+    external: { label: "Exitech case study", href: "https://exitech.org/work/sunridge-ios-app-48" },
   },
 ];
 

@@ -96,6 +96,11 @@ function Card({ p, index }: { p: Project; index: number }) {
               <GithubIcon className="size-3.5" /> Code
             </a>
           )}
+          {p.external && (
+            <a href={p.external.href} className="inline-flex items-center gap-1 text-muted hover:text-fg">
+              {p.external.label} <ArrowUpRight className="size-3.5" />
+            </a>
+          )}
           {p.repos?.map((r) => (
             <a key={r.href} href={r.href} className="inline-flex items-center gap-1.5 text-muted hover:text-fg">
               <GithubIcon className="size-3.5" /> {r.label}
