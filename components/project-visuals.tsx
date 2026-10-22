@@ -98,4 +98,38 @@ export function SalesforceVisual() {
   );
 }
 
-export const visuals = { transcript: TranscriptVisual, inspection: InspectionVisual, salesforce: SalesforceVisual };
+export function FridgeVisual() {
+  const items = [
+    { w: "58%", due: "Today", tone: "bg-gap/15 text-gap" },
+    { w: "44%", due: "2 days", tone: "bg-partial/15 text-partial" },
+    { w: "66%", due: "5 days", tone: "bg-strong/15 text-strong" },
+  ];
+  return (
+    <div className="flex size-full items-center justify-center gap-4 p-6 sm:p-8">
+      <div className="w-48 shrink-0 rounded-[1.6rem] border border-line-2 bg-bg-2 p-3 shadow-card">
+        <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-line-2" />
+        <Label>Expiring soon</Label>
+        <div className="space-y-1.5">
+          {items.map((it) => (
+            <div key={it.due} className="flex items-center gap-2 rounded-lg border border-line px-2 py-1">
+              <span className="size-4 shrink-0 rounded bg-accent/30" />
+              <Skeleton w={it.w} />
+              <span className={`ml-auto whitespace-nowrap rounded-full px-1.5 py-px font-mono text-[0.55rem] ${it.tone}`}>{it.due}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="hidden w-36 rounded-xl border border-line-2 bg-bg-2 p-3 shadow-card sm:block">
+        <Label>Recipe idea</Label>
+        <div className="mb-3 h-12 rounded-lg bg-gradient-to-br from-accent/40 to-accent-2/40" />
+        <div className="space-y-2">
+          <Skeleton w="80%" accent />
+          <Skeleton w="95%" />
+          <Skeleton w="60%" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const visuals = { transcript: TranscriptVisual, inspection: InspectionVisual, salesforce: SalesforceVisual, fridge: FridgeVisual };

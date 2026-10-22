@@ -96,16 +96,18 @@ export interface Project {
   slug: string;
   name: string;
   category: string;
-  kind: "Client work" | "Side project" | "Personal project";
+  kind: "Client work" | "Side project" | "Personal project" | "Team project";
   problem: string;
   role: string;
   tech: string[];
   outcome?: string;
   image?: string;
   imageAlt?: string;
-  visual?: "transcript" | "inspection" | "salesforce";
+  visual?: "transcript" | "inspection" | "salesforce" | "fridge";
   demo?: string;
   repo?: string;
+  // For projects with more than one repository (shown instead of repo).
+  repos?: { label: string; href: string }[];
   confidential?: boolean;
   caseStudy?: CaseStudy;
 }
@@ -296,6 +298,21 @@ export const projects: Project[] = [
       responsibilities: ["Concept and design", "Audio engine", "Rendering", "Real-time networking"],
       outcome: ["Live at wild-frequencies.vercel.app and open source on GitHub."],
     },
+  },
+  {
+    slug: "fridge",
+    name: "Fridge",
+    category: "Mobile app",
+    kind: "Team project",
+    problem: "Groceries get forgotten until they expire. Fridge scans them, tracks expiry dates and suggests recipes.",
+    role: "Part of the Åbo Akademi University team that built it.",
+    tech: ["Flutter", "Django", "PostgreSQL", "AWS RDS", "Firebase"],
+    outcome: "ICT Showroom 2025 finalist: Best UI from the jury, plus 1st in Best Technical Content and Best Presentation by public vote.",
+    visual: "fridge",
+    repos: [
+      { label: "App", href: "https://github.com/HaroonRiasat1/fridge_flutter" },
+      { label: "Backend", href: "https://github.com/HaroonRiasat1/fridge_backend" },
+    ],
   },
 ];
 
