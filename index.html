@@ -75,6 +75,7 @@
       transition: transform 0.15s, background 0.15s, border-color 0.15s;
     }
     .btn:hover { transform: translateY(-1px); border-color: var(--faint); }
+    .contact .btn { max-width: 100%; height: auto; min-height: 46px; padding-block: 10px; overflow-wrap: anywhere; }
     .btn.accent { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
     .btn.accent:hover { background: #ffd47a; }
     .btn .arr { font-family: var(--mono); font-size: 13px; }
@@ -113,6 +114,48 @@
     @keyframes blink { 50% { opacity: 0; } }
     .chat-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--line); font: 12px var(--mono); color: var(--faint); }
     .chat-foot a { color: var(--accent); }
+    .chat-body { max-height: 420px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+    .ask-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--line); }
+    .ask-form input {
+      flex: 1; min-width: 0; height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line-2);
+      background: var(--bg); color: var(--text); font: 15px var(--sans); outline: none; transition: border-color 0.15s;
+    }
+    .ask-form input:focus { border-color: var(--accent); }
+    .ask-form button { height: 40px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font: 600 14px var(--sans); cursor: pointer; }
+    .ask-form button:disabled { opacity: 0.5; cursor: default; }
+    .a p { margin: 0 0 8px; } .a p:last-child { margin: 0; }
+    .a ul { margin: 4px 0 8px; padding-left: 18px; } .a li { margin: 3px 0; }
+    .a strong { color: var(--text); font-weight: 600; }
+    .a.err { color: var(--muted); font-style: italic; }
+    .thinking { display: inline-flex; gap: 4px; padding: 6px 0; }
+    .thinking i { width: 6px; height: 6px; border-radius: 50%; background: var(--faint); animation: bob 1s infinite ease-in-out; }
+    .thinking i:nth-child(2) { animation-delay: 0.15s; } .thinking i:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes bob { 40% { transform: translateY(-4px); background: var(--accent); } }
+
+    /* fit checker */
+    .fit { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+    .fit textarea {
+      width: 100%; min-height: 260px; resize: vertical; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line-2);
+      background: var(--bg-2); color: var(--text); font: 14.5px/1.55 var(--sans); outline: none; transition: border-color 0.15s;
+    }
+    .fit textarea:focus { border-color: var(--accent); }
+    .fit-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 12px; }
+    .fit-actions .count { margin-left: auto; font: 12px var(--mono); color: var(--faint); }
+    .fit-note { margin: 14px 0 0; font-size: 13px; color: var(--faint); }
+    .fit-out { min-height: 320px; display: flex; flex-direction: column; }
+    .fit-empty { margin: auto; text-align: center; color: var(--faint); font: 13px var(--mono); max-width: 300px; }
+    .fit-role { font: 12px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+    .fit-summary { margin: 10px 0 16px; font-size: 16px; color: #d9dbde; }
+    .fit-counts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font: 12px var(--mono); border: 1px solid var(--line-2); color: var(--muted); }
+    .pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .pill.strong { color: #7ddc9a; } .pill.partial { color: var(--accent); } .pill.gap { color: #f08b7a; }
+    .fit-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .fit-list li { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); }
+    .fit-list .req { font-weight: 600; font-size: 14.5px; }
+    .fit-list .ev { margin-top: 3px; font-size: 14px; color: var(--muted); }
+    .fit-list .pill { align-self: start; justify-content: center; }
+    .fit-foot { margin-top: 14px; font: 11.5px var(--mono); color: var(--faint); }
 
     /* ---------- marquee ---------- */
     .strip { border-block: 1px solid var(--line); padding: 18px 0; overflow: hidden; }
@@ -215,6 +258,7 @@
     @media (max-width: 960px) {
       .hero .wrap { grid-template-columns: 1fr; }
       .projects, .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .fit { grid-template-columns: 1fr; }
     }
     @media (max-width: 720px) {
       .navlinks { display: none; }
@@ -222,7 +266,7 @@
       .hero { padding-top: 56px; }
       section.block { padding-top: 84px; }
       .role, .award { grid-template-columns: 1fr; gap: 6px; }
-      .projects, .stack, .edu { grid-template-columns: 1fr; }
+      .projects, .stack, .edu, .fit { grid-template-columns: 1fr; }
       .strip .eyebrow { display: none; }
       .cell { padding: 22px; }
     }
@@ -233,7 +277,7 @@
     @media print {
       :root { --bg: #fff; --bg-2: #fff; --panel: #fff; --line: #ddd; --line-2: #ccc; --text: #000; --muted: #333; --faint: #666; }
       body { font-size: 10pt; }
-      nav.top, .backdrop, .chat, .strip, .filters, .legend, .contact .cta, .cta { display: none !important; }
+      nav.top, .backdrop, .chat, .strip, .filters, .legend, .contact .cta, .cta, #fit { display: none !important; }
       .hero .wrap { grid-template-columns: 1fr; }
       section.block, .hero, .contact { padding-top: 18px; }
       .js .reveal { opacity: 1; transform: none; }
@@ -250,6 +294,7 @@
         <a href="#work">Work</a>
         <a href="#projects">Projects</a>
         <a href="#stack">Stack</a>
+        <a href="#fit">Fit check</a>
         <a href="#education">Education</a>
       </div>
       <a class="btn accent" href="mailto:haroonriasatali@gmail.com">Let's talk <span class="arr">↗</span></a>
@@ -285,7 +330,11 @@
             <div class="src">Sources · <span>Experience</span></div>
           </div>
         </div>
-        <div class="chat-foot"><span>Answers only from my resume</span><a href="https://ask.haroonriasat.com">Try it ↗</a></div>
+        <form class="ask-form" id="ask-form" autocomplete="off">
+          <input id="ask-input" maxlength="400" placeholder="Ask anything about me…" aria-label="Ask my AI resume a question" />
+          <button type="submit" id="ask-send">Ask</button>
+        </form>
+        <div class="chat-foot"><span>Answers only from my resume</span><a href="https://ask.haroonriasat.com">Open full chat ↗</a></div>
       </div>
     </div>
   </header>
@@ -446,6 +495,32 @@
       </div>
     </section>
 
+    <section class="block" id="fit">
+      <div class="wrap">
+        <div class="head reveal">
+          <div>
+            <div class="eyebrow">AI · Fit check</div>
+            <h2>Do I fit <em>your role?</em></h2>
+          </div>
+          <p>Paste a job ad. My AI compares it with my resume, requirement by requirement, and is honest about the gaps too.</p>
+        </div>
+        <div class="grid fit reveal">
+          <form class="cell" id="fit-form">
+            <textarea id="fit-input" maxlength="8000" placeholder="Paste the job description here…" aria-label="Job description"></textarea>
+            <div class="fit-actions">
+              <button class="btn accent" type="submit" id="fit-send">Check my fit <span class="arr">→</span></button>
+              <button class="btn" type="button" id="fit-example">Try an example</button>
+              <span class="count" id="fit-count">0 / 8000</span>
+            </div>
+            <p class="fit-note">Uses only facts from my resume; every piece of evidence is checked against it before it's shown. The text you paste isn't stored.</p>
+          </form>
+          <div class="cell fit-out" id="fit-out" aria-live="polite">
+            <p class="fit-empty">Your match report appears here: strengths, partial matches and gaps, each with evidence from my resume.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="block" id="education">
       <div class="wrap">
         <div class="head reveal">
@@ -575,18 +650,21 @@
       { q: "What was his thesis about?", a: "TaskLint: an AI-powered Chrome extension that audits project-board tasks for clarity, ownership, deadlines and delivery risk.", s: "Education" },
     ];
     const box = document.getElementById("demo");
+    let live = false; // set once a visitor asks their own question; stops the scripted demo
     if (!reduce) {
       let i = 0;
       const wait = (ms) => new Promise((r) => setTimeout(r, ms));
       (async function loop() {
         await wait(4500);
         for (;;) {
+          if (live) return;
           i = (i + 1) % demo.length;
           const { q, a, s } = demo[i];
           box.innerHTML = `<div class="q">${q}</div><div class="a caret"></div>`;
           const el = box.querySelector(".a");
           await wait(700);
-          for (let k = 0; k <= a.length; k += 3) { el.textContent = a.slice(0, k); await wait(18); }
+          for (let k = 0; k <= a.length; k += 3) { if (live) return; el.textContent = a.slice(0, k); await wait(18); }
+          if (live) return;
           el.classList.remove("caret");
           el.textContent = a;
           if (s) el.insertAdjacentHTML("beforeend", `<div class="src">Sources · <span>${s}</span></div>`);
@@ -594,6 +672,139 @@
         }
       })();
     }
+
+    // ---------- Live AI: same backend as ask.haroonriasat.com ----------
+    const API = location.hostname === "localhost" ? "http://localhost:5190" : "https://ask.haroonriasat.com";
+    const esc = (t) => t.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+    // Tiny, escaped markdown: paragraphs, "- " lists and **bold**.
+    function md(text) {
+      const out = []; let list = [];
+      const inline = (t) => esc(t).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+      const flush = () => { if (list.length) out.push(`<ul>${list.map((l) => `<li>${inline(l)}</li>`).join("")}</ul>`); list = []; };
+      for (const raw of text.split("\n")) {
+        const line = raw.trim(); const m = line.match(/^[-*•]\s+(.*)/);
+        if (m) list.push(m[1]); else { flush(); if (line) out.push(`<p>${inline(line)}</p>`); }
+      }
+      flush();
+      return out.join("");
+    }
+
+    const askForm = document.getElementById("ask-form");
+    const askInput = document.getElementById("ask-input");
+    const askSend = document.getElementById("ask-send");
+    const history = [];
+    askInput.addEventListener("focus", () => { live = true; });
+    askForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const question = askInput.value.trim();
+      if (!question || askSend.disabled) return;
+      if (!live) { live = true; }
+      if (!box.dataset.live) { box.innerHTML = ""; box.dataset.live = "1"; }
+      askInput.value = ""; askSend.disabled = true;
+      const q = document.createElement("div"); q.className = "q"; q.textContent = question;
+      const a = document.createElement("div"); a.className = "a"; a.innerHTML = '<span class="thinking"><i></i><i></i><i></i></span>';
+      box.append(q, a); box.scrollTop = box.scrollHeight;
+      try {
+        const res = await fetch(`${API}/api/chat`, {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question, history: history.slice(-4) }),
+        });
+        if (!res.ok || !res.body) throw new Error(res.status === 429 ? "busy" : "down");
+        const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
+        let text = "";
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          text += value; a.innerHTML = md(text); box.scrollTop = box.scrollHeight;
+        }
+        let sources = [];
+        try { sources = JSON.parse(decodeURIComponent(res.headers.get("X-Sources") || "[]")); } catch {}
+        if (sources.length && !/I don't know|I can only answer/.test(text)) {
+          const src = document.createElement("div"); src.className = "src";
+          src.append("Sources · ");
+          for (const s of sources) { const chip = document.createElement("span"); chip.textContent = s; src.append(chip, " "); }
+          a.append(src);
+        }
+        history.push({ role: "user", content: question }, { role: "assistant", content: text });
+      } catch (err) {
+        a.className = "a err";
+        a.textContent = err.message === "busy"
+          ? "That's a lot of questions at once. Give it a minute, or use the full chat at ask.haroonriasat.com."
+          : "The AI is unavailable right now. Try the full chat at ask.haroonriasat.com, or email me.";
+      }
+      askSend.disabled = false; askInput.focus(); box.scrollTop = box.scrollHeight;
+    });
+
+    // ---------- Fit check ----------
+    const fitForm = document.getElementById("fit-form");
+    const fitInput = document.getElementById("fit-input");
+    const fitSend = document.getElementById("fit-send");
+    const fitOut = document.getElementById("fit-out");
+    const fitCount = document.getElementById("fit-count");
+    const EXAMPLE = `Full-Stack Engineer (AI products), hybrid in Helsinki.
+You will build customer-facing web apps and LLM features end to end.
+Requirements:
+- 3+ years with React and TypeScript
+- Backend experience with Node.js or Python
+- Building RAG or other LLM features in production
+- AWS or Azure, Docker and CI/CD
+- Experience leading or mentoring engineers
+- Fluent Finnish
+- Experience with Go microservices`;
+    const updateCount = () => { fitCount.textContent = `${fitInput.value.length} / 8000`; };
+    fitInput.addEventListener("input", updateCount);
+    document.getElementById("fit-example").onclick = () => { fitInput.value = EXAMPLE; updateCount(); fitInput.focus(); };
+
+    const LEVEL = { strong: "Strong", partial: "Partial", gap: "Gap" };
+    function renderFit(d) {
+      fitOut.replaceChildren();
+      const role = document.createElement("div"); role.className = "fit-role"; role.textContent = d.role || "Match report";
+      const summary = document.createElement("p"); summary.className = "fit-summary"; summary.textContent = d.summary;
+      const counts = document.createElement("div"); counts.className = "fit-counts";
+      for (const k of ["strong", "partial", "gap"]) {
+        const p = document.createElement("span"); p.className = `pill ${k}`; p.textContent = `${d.counts[k]} ${LEVEL[k].toLowerCase()}`; counts.append(p);
+      }
+      const list = document.createElement("ul"); list.className = "fit-list";
+      for (const it of d.items) {
+        const li = document.createElement("li");
+        const pill = document.createElement("span"); pill.className = `pill ${it.level}`; pill.textContent = LEVEL[it.level];
+        const body = document.createElement("div");
+        const req = document.createElement("div"); req.className = "req"; req.textContent = it.requirement;
+        const ev = document.createElement("div"); ev.className = "ev"; ev.textContent = it.evidence;
+        body.append(req, ev); li.append(pill, body); list.append(li);
+      }
+      const foot = document.createElement("div"); foot.className = "fit-foot";
+      foot.textContent = "Evidence comes only from my resume and is re-checked before it's shown. Questions? Email me.";
+      fitOut.append(role, summary, counts, list, foot);
+    }
+    function fitMessage(text) {
+      fitOut.replaceChildren();
+      const p = document.createElement("p"); p.className = "fit-empty"; p.textContent = text; fitOut.append(p);
+    }
+
+    fitForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const jobAd = fitInput.value.trim();
+      if (jobAd.length < 80) return fitMessage("Paste a bit more of the job ad (at least a few requirements) so the comparison is meaningful.");
+      fitSend.disabled = true;
+      fitOut.replaceChildren();
+      const wait = document.createElement("p"); wait.className = "fit-empty";
+      wait.innerHTML = '<span class="thinking"><i></i><i></i><i></i></span><br>Comparing the ad with my resume…';
+      fitOut.append(wait);
+      try {
+        const res = await fetch(`${API}/api/fit`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ jobAd }) });
+        const d = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          fitMessage(d.error === "rate_limited" || d.error === "busy"
+            ? "You've run a few checks already. Give it a few minutes and try again."
+            : d.error === "too_long" ? "That's a long ad. Trim it to the role description and requirements (8,000 characters max)."
+            : "The fit check couldn't run right now. Try again in a moment, or email me.");
+        } else renderFit(d);
+      } catch {
+        fitMessage("The fit check couldn't run right now. Try again in a moment, or email me.");
+      }
+      fitSend.disabled = false;
+    });
   </script>
 </body>
 </html>
