@@ -103,7 +103,7 @@ export interface Project {
   outcome?: string;
   image?: string;
   imageAlt?: string;
-  visual?: "transcript" | "inspection" | "salesforce" | "fridge";
+  visual?: "transcript" | "inspection" | "salesforce";
   demo?: string;
   repo?: string;
   // For projects with more than one repository (shown instead of repo).
@@ -308,7 +308,9 @@ export const projects: Project[] = [
     role: "Part of the Åbo Akademi University team that built it.",
     tech: ["Flutter", "Django", "PostgreSQL", "AWS RDS", "Firebase"],
     outcome: "ICT Showroom 2025 finalist: Best UI from the jury, plus 1st in Best Technical Content and Best Presentation by public vote.",
-    visual: "fridge",
+    image: "/projects/fridge.png",
+    imageAlt: "Fridge app screens: grocery categories with a Let's Cook button, the splash screen, and a vegetables list with quantities",
+    demo: "https://fridgelogic.lovable.app",
     repos: [
       { label: "App", href: "https://github.com/HaroonRiasat1/fridge_flutter" },
       { label: "Backend", href: "https://github.com/HaroonRiasat1/fridge_backend" },
