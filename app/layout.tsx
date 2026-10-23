@@ -29,16 +29,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#090B10" },
-    { media: "(prefers-color-scheme: light)", color: "#F6F7FB" },
-  ],
+  themeColor: "#F6F7FB",
   width: "device-width",
   initialScale: 1,
 };
 
-// Runs before paint so the saved theme never flashes. Dark unless the visitor chose light.
-const themeScript = `try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}`;
+// Runs before paint so the saved theme never flashes. Light unless the visitor chose dark.
+const themeScript = `try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}`;
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -59,7 +56,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}>
+    <html lang="en" data-theme="light" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />

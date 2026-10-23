@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ---------- Design system ----------
-   Colours are tokens so light and dark share every component. Dark is the default;
+   Colours are tokens so light and dark share every component. Light is the default;
    the theme script in layout.tsx sets data-theme before first paint. */
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));

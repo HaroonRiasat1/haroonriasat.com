@@ -15,7 +15,7 @@ Portfolio of Haroon Riasat, a full-stack and AI software engineer in Turku, Finl
 - SEO: metadata, Open Graph image (`app/opengraph-image.tsx`), `sitemap.xml`, `robots.txt` and Person/CreativeWork structured data.
 - `public/Haroon_Riasat_Resume.pdf`: the downloadable CV, without a phone number since the site is public.
 
-Design tokens live in `app/globals.css` (dark by default, light via the toggle). Animations respect `prefers-reduced-motion`, and the hero animates in CSS so the first screen never waits for JavaScript.
+Design tokens live in `app/globals.css` (light by default, dark via the toggle). Animations respect `prefers-reduced-motion`, and the hero animates in CSS so the first screen never waits for JavaScript.
 
 ## Run locally
 
