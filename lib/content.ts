@@ -126,11 +126,11 @@ export interface CaseStudy {
 
 export const projects: Project[] = [
   {
-    slug: "council-tap",
-    name: "Council Tap",
+    slug: "legal-transcription-ai",
+    name: "Legal Transcription AI",
     category: "Legal AI",
     kind: "Client work",
-    problem: "Lawyers in Maui County needed usable notes from long, noisy court-hearing recordings.",
+    problem: "Lawyers needed usable notes from long, noisy court-hearing recordings.",
     role: "Led the architecture and delivery.",
     tech: ["Python", "Deepgram", "Claude", "MERN", "AWS"],
     visual: "transcript",
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     caseStudy: {
       intro: "An AI pipeline that turns court-hearing audio into structured, lawyer-ready notes.",
       problem: [
-        "Court hearings run long and the recordings are noisy. Lawyers in Maui County needed notes they could actually work from, not hours of audio.",
+        "Court hearings run long and the recordings are noisy. Lawyers needed notes they could actually work from, not hours of audio.",
       ],
       solution: [
         "A pipeline that transcribes the hearing audio with Deepgram, then uses Claude to turn the transcript into structured notes for lawyers, delivered through a MERN web app running on AWS.",
@@ -193,8 +193,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "subqc-ai",
-    name: "Subqc AI",
+    slug: "field-inspection-ai",
+    name: "Field Inspection AI",
     category: "Field operations AI",
     kind: "Client work",
     problem: "Field teams were filling in inspections and writing reports by hand.",
@@ -354,14 +354,14 @@ export const expertise = [
     icon: "brain",
     core: ["OpenAI", "Claude", "RAG", "Embeddings", "Vector databases", "MCP"],
     also: ["LLM fine-tuning", "LangChain", "LlamaIndex", "Pinecone", "pgvector", "Deepgram"],
-    usage: "RAG in production at Amplon, Claude-structured transcripts for Council Tap, and LLMs fine-tuned on client data at QUEST Lab.",
+    usage: "RAG in production at Amplon, Claude-structured court transcripts for a legal client, and LLMs fine-tuned on client data at QUEST Lab.",
   },
   {
     group: "Databases",
     icon: "database",
     core: ["PostgreSQL", "MongoDB"],
     also: ["SQL", "Upstash Vector"],
-    usage: "PostgreSQL in Exitech's stack and SCRUB; MongoDB behind Kinwell, Council Tap and Subqc AI.",
+    usage: "PostgreSQL in Exitech's stack and SCRUB; MongoDB behind Kinwell and two client AI platforms.",
   },
   {
     group: "Cloud & DevOps",
