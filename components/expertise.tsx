@@ -1,12 +1,12 @@
-import { ArrowUpRight, Brain, Cloud, Database, Layers, Server } from "lucide-react";
+import { ArrowUpRight, Brain, Cloud, Database, Layers, Plug, Server } from "lucide-react";
 import { expertise, learning } from "@/lib/content";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
 
-const icons = { layout: Layers, server: Server, brain: Brain, database: Database, cloud: Cloud };
-// AI Engineering gets the wide tile; the rest share the grid.
-const spans = ["md:col-span-2 lg:col-span-4", "lg:col-span-2", "lg:col-span-2", "lg:col-span-2", "lg:col-span-2"];
-const layout = [2, 0, 1, 3, 4];
+const icons = { layout: Layers, server: Server, brain: Brain, database: Database, cloud: Cloud, plug: Plug };
+// AI Engineering gets the wide tile and Integrations closes the grid full width.
+const spans = ["md:col-span-2 lg:col-span-4", "lg:col-span-2", "lg:col-span-2", "lg:col-span-2", "lg:col-span-2", "md:col-span-2 lg:col-span-6"];
+const layout = [2, 0, 1, 3, 4, 5];
 
 export function Expertise() {
   return (

@@ -51,7 +51,7 @@ const personJsonLd = {
     { "@type": "CollegeOrUniversity", name: "Åbo Akademi University" },
     { "@type": "CollegeOrUniversity", name: "FAST-NUCES" },
   ],
-  knowsAbout: ["Full-stack development", "Retrieval-augmented generation", "React", "Next.js", "TypeScript", "Node.js", "Python", "Laravel", "AWS"],
+  knowsAbout: ["Full-stack development", "Retrieval-augmented generation", "React", "Next.js", "TypeScript", "Node.js", "Python", "Laravel", "AWS", "Terraform", "Salesforce integrations"],
   sameAs: [site.linkedin, site.github, site.medium, site.askUrl],
 };
 

@@ -21,7 +21,7 @@ export function Experience() {
           eyebrow="Experience"
           title={
             <>
-              Four and a half years of <span className="accent-serif text-gradient">shipping</span>.
+              Four years of <span className="accent-serif text-gradient">shipping</span>.
             </>
           }
           lede="From leading a team of six to co-founding a consultancy, I've owned products from the first client call to production."

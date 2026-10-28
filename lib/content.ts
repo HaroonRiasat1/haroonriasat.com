@@ -7,7 +7,7 @@ export const site = {
   url: "https://haroonriasat.com",
   title: "Haroon Riasat · Full-Stack & AI Software Engineer",
   description:
-    "Full-stack and AI software engineer in Turku, Finland. 4.5+ years shipping web, mobile and AI products: RAG assistants, transcription pipelines and document extraction used by real customers.",
+    "Full-stack and AI software engineer in Turku, Finland. 4+ years shipping web, mobile and AI products: RAG assistants, transcription pipelines and document extraction used by real customers.",
   email: "haroonriasatali@gmail.com",
   linkedin: "https://linkedin.com/in/haroon-riasat-82659b1a7",
   github: "https://github.com/HaroonRiasat1",
@@ -20,9 +20,9 @@ export const site = {
 export const rotating = ["Full-Stack Applications", "AI-Powered Products", "SaaS Platforms", "Intelligent Automation"];
 
 export const stats = [
-  { value: "4.5+", label: "years shipping production software" },
-  { value: "60+", label: "products delivered at Exitech" },
-  { value: "20+", label: "production apps at QUEST Lab" },
+  { value: "4+", label: "years shipping production software" },
+  { value: "20+", label: "products delivered at Exitech" },
+  { value: "20+", label: "production apps at TechQuest" },
   { value: "6", label: "engineers led" },
 ];
 
@@ -49,12 +49,13 @@ export const experience: Role[] = [
     summary:
       "Builds Amplon's Hoshin Kanri strategic planning platform across the stack, from Laravel APIs to the React frontend and the AI features inside the product.",
     highlights: [
+      "Built Amplon's core UI kit of reusable React components, for faster development and a consistent look across the portal.",
       "Designed and shipped a RAG assistant (Python/Flask, OpenAI API, AWS) that ingests product manuals and YouTube tutorial transcripts and answers users' questions inside the product, owning it from the retrieval pipeline to the React integration.",
       "Builds backend features and APIs in PHP/Laravel and the matching React frontend work, so features ship end to end in a production SaaS product.",
       "Integrated Contentful with the React frontend so release notes and in-app content update without code deploys.",
-      "Works daily with product, design and backend colleagues on performance and reliability, turning user feedback into scoped releases.",
+      "Works daily with product, design and backend colleagues on performance and reliability, turning user feedback into scoped releases, and helped onboard new clients.",
     ],
-    tech: ["React", "PHP / Laravel", "Python / Flask", "OpenAI API", "RAG", "AWS", "Contentful"],
+    tech: ["React", "UI kit", "PHP / Laravel", "Python / Flask", "OpenAI API", "RAG", "AWS", "Contentful"],
   },
   {
     company: "Exitech",
@@ -63,23 +64,25 @@ export const experience: Role[] = [
     place: "Remote",
     current: true,
     summary:
-      "Co-founded a product engineering consultancy that has delivered 60+ products for international clients across SaaS, e-commerce, AI and automation.",
+      "Co-founded a product engineering consultancy that has delivered 20+ products for international clients across SaaS, AI and automation.",
     highlights: [
-      "Owns architecture, implementation, cloud deployment and operations end to end, and the technical trade-offs on cost, speed and reliability with client stakeholders.",
-      "Ships containerised AWS deployments with Docker, Kubernetes and CI/CD pipelines.",
-      "Led the Exitech AI Internship Program: in three months, final-year students built 12 fully functional AI web products, backend to frontend.",
+      "Leads work from the first client conversation to production: architecture, implementation, cloud deployment and operations.",
+      "Ships containerised AWS deployments with Docker, ECS/Fargate, Kubernetes, Terraform and GitHub Actions CI/CD.",
+      "Turns recurring client needs into reusable templates for deployment, authentication and integrations, so new products start from a secure, tested baseline.",
+      "Acts as technical advisor to client stakeholders: scopes ambiguous problems, proposes architecture, and weighs cost, speed and reliability.",
+      "Led the Exitech AI Internship Program: mentored and code-reviewed final-year interns who built 12 complete AI web products in three months.",
     ],
-    tech: ["React", "Next.js", "Node.js", "TypeScript", "Python", "PostgreSQL", "AWS", "Docker", "Kubernetes", "CI/CD"],
+    tech: ["React", "Next.js", "TypeScript", "Python", "PostgreSQL", "AWS ECS/Fargate", "Docker", "Kubernetes", "Terraform", "GitHub Actions"],
   },
   {
-    company: "QUEST Lab",
+    company: "TechQuest",
     role: "Software Engineer",
     dates: "Feb 2023 – Jun 2024",
-    place: "Islamabad, Pakistan",
+    place: "Hybrid",
     summary:
       "Promoted early to lead a team of 6 engineers delivering and maintaining 20+ production AI-based full-stack web and iOS applications.",
     highlights: [
-      "Owned client-facing products from requirements and architecture through testing and deployment, including client communication and project management.",
+      "Owned client-facing products from requirements and architecture through testing and deployment, including client communication and project management in an Agile setup.",
       "Fine-tuned LLMs on client data and integrated them into the products.",
       "Built and ran products on AWS, with web scraping pipelines feeding the apps and their AI features, and native iOS apps alongside the web products.",
     ],
@@ -345,8 +348,8 @@ export const expertise = [
   {
     group: "Backend",
     icon: "server",
-    core: ["Node.js", "Python", "Laravel"],
-    also: ["Express", "Flask", "Django", "REST APIs"],
+    core: ["Python", "Node.js", "Laravel"],
+    also: ["FastAPI", "Flask", "Express", "Django", "REST APIs"],
     usage: "Laravel APIs at Amplon, a Flask service behind its RAG assistant, and a Node.js MCP server in Kinwell.",
   },
   {
@@ -354,21 +357,28 @@ export const expertise = [
     icon: "brain",
     core: ["OpenAI", "Claude", "RAG", "Embeddings", "Vector databases", "MCP"],
     also: ["LLM fine-tuning", "LangChain", "LlamaIndex", "Pinecone", "pgvector", "Deepgram"],
-    usage: "RAG in production at Amplon, Claude-structured court transcripts for a legal client, and LLMs fine-tuned on client data at QUEST Lab.",
+    usage: "RAG in production at Amplon, Claude-structured court transcripts for a legal client, and LLMs fine-tuned on client data at TechQuest.",
   },
   {
     group: "Databases",
     icon: "database",
     core: ["PostgreSQL", "MongoDB"],
-    also: ["SQL", "Upstash Vector"],
+    also: ["Aurora / RDS", "Migrations", "Schema isolation", "Vector search", "Upstash Vector"],
     usage: "PostgreSQL in Exitech's stack and SCRUB; MongoDB behind Kinwell and two client AI platforms.",
   },
   {
     group: "Cloud & DevOps",
     icon: "cloud",
-    core: ["AWS", "Docker", "Kubernetes", "CI/CD"],
-    also: ["EC2", "S3", "Amplify", "Bedrock", "SageMaker", "Linux"],
-    usage: "Containerised AWS deployments with Docker, Kubernetes and CI/CD at Exitech. AWS Certified Cloud Practitioner (2023).",
+    core: ["AWS", "Terraform", "GitHub Actions", "Docker", "Kubernetes"],
+    also: ["ECS/Fargate", "ECR", "ALB", "CloudFront", "IAM", "Secrets Manager", "EventBridge", "CloudWatch", "S3", "Bedrock", "SageMaker", "Linux"],
+    usage: "Containerised AWS deployments with ECS/Fargate, Terraform and GitHub Actions (OIDC, plan/apply) at Exitech. AWS Certified Cloud Practitioner (2023).",
+  },
+  {
+    group: "Integrations & security",
+    icon: "plug",
+    core: ["Salesforce", "Slack apps", "Okta", "OAuth2 / OIDC"],
+    also: ["Google Workspace APIs", "Databricks", "HiBob", "Jira", "Contentful", "Checkov", "KMS", "Splunk audit logging"],
+    usage: "A Salesforce extension with OAuth (SCRUB), Contentful at Amplon, MCP servers, and reusable auth and integration templates at Exitech.",
   },
 ];
 
@@ -395,10 +405,9 @@ export const learning = [
     summary:
       "Shipping LLM apps and multi-agent systems to production on Vercel, AWS, Azure and GCP, with infrastructure as code, CI/CD, monitoring and guardrails.",
     groups: [
-      { name: "App stack", tools: ["FastAPI", "Clerk"] },
-      { name: "AWS", tools: ["Lambda", "CloudFront", "API Gateway", "SQS", "App Runner", "Aurora"] },
+      { name: "App stack", tools: ["Clerk"] },
+      { name: "AWS", tools: ["Lambda", "API Gateway", "SQS", "App Runner"] },
       { name: "Agents on AWS", tools: ["AgentCore", "Strands Agents"] },
-      { name: "Infra & delivery", tools: ["Terraform", "GitHub Actions"] },
       { name: "Multi-cloud", tools: ["Azure Container Apps", "GCP Cloud Run"] },
     ],
   },
