@@ -333,6 +333,19 @@ export const projects: Project[] = [
     imageAlt: "Sunridge Medical iPad app: the dashboard with appointment calendar, and the Today view with a patient's procedures, labs and dispensed items",
     external: { label: "Exitech case study", href: "https://exitech.org/work/sunridge-ios-app-48" },
   },
+  {
+    slug: "field-service-navigator",
+    name: "Field-Service Navigator",
+    category: "3D digital twin",
+    kind: "Team project",
+    problem: "A Gaussian-splat scan of a plant is millions of coloured blobs a field technician can't ask anything. This turns it into a digital twin you can walk through and talk to.",
+    role: "Started the project with the first prototype: splat navigation, vision-model asset detection and a grounded AI copilot, then added click-to-analyse in the viewer. Team of four, built in 72 hours at the Since AI Hackathon 2026 for Valmet's Industrial Metaverse challenge.",
+    tech: ["Gaussian splats", "three.js", "Python", "Grounding DINO", "SAM 2", "LLM agents", "IFC / BIM"],
+    outcome: "166 objects extracted from a real scan, routes planned in about 2 ms, and the agent got 12 of 12 real-scene requests right in testing.",
+    image: "/projects/field-service-navigator.jpg",
+    imageAlt: "A 3D scan of a plant room with each extracted object painted by class: pipes, ladders, carts, chairs and panels",
+    repo: "https://github.com/HaroonRiasat1/since-ai-valmet",
+  },
 ];
 
 export const moreOnGithub = ["event-map-scraper", "tripstitch", "airplane-runner", "a Mario-style platformer in x86 Assembly"];

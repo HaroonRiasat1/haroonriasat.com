@@ -11,8 +11,8 @@ import { ease } from "./reveal";
 import { SectionHeading } from "./section-heading";
 
 // Asymmetric bento: wide and narrow cards alternate on large screens.
-const order = ["legal-transcription-ai", "kinwell", "field-inspection-ai", "ai-resume-assistant", "wild-frequencies", "fridge", "sunridge", "scrub"];
-const span = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7", "lg:col-span-6", "lg:col-span-6", "lg:col-span-6", "lg:col-span-6"];
+const order = ["legal-transcription-ai", "kinwell", "field-service-navigator", "field-inspection-ai", "ai-resume-assistant", "wild-frequencies", "fridge", "sunridge", "scrub"];
+const span = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-7", "lg:col-span-5", "lg:col-span-6", "lg:col-span-6", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4"];
 
 function Preview({ p }: { p: Project }) {
   if (p.image) {
